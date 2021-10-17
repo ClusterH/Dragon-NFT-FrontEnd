@@ -234,7 +234,7 @@ const Rankings = () => {
                     <label htmlFor='checked'>
                       <span className='number'>31</span>
                       <span className='check-status'>
-                        <img src='https://storage.googleapis.com/opensea-prod.appspot.com/creature/50.png' />
+                        <img src='https://storage.googleapis.com/opensea-prod.appspot.com/creature/50.png' alt='check-status' />
                       </span>
                       <span className='txt'>You</span>
                     </label>

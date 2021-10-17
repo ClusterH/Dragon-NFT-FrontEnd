@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
-import { Web3Provider } from '@ethersproject/providers';
 import { useWeb3React as useWeb3ReactCore } from '@web3-react/core';
-import { NetworkContextName } from '../config/constants/misc';
+import { useEffect, useState } from 'react';
 import { isMobile } from 'react-device-detect';
+import { NetworkContextName } from '../config/constants/misc';
 import { injected } from '../connectors';
 
 export function useActiveWeb3React() {

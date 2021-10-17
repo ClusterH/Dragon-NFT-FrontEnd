@@ -1,4 +1,4 @@
-import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core';
+import { useWeb3React } from '@web3-react/core';
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
 import React, { useEffect, useState } from 'react';
 import { isMobile } from 'react-device-detect';
@@ -163,11 +163,6 @@ export default function WalletModal({ ENSName }) {
       const option = SUPPORTED_WALLETS[key];
       // check for mobile options
       if (isMobile) {
-        //disable portis on mobile for now
-        if (option.connector === portis) {
-          return null;
-        }
-
         if (!window.web3 && !window.ethereum && option.mobile) {
           return (
             <Option

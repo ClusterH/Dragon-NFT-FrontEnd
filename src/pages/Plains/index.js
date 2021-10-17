@@ -217,7 +217,7 @@ const Plains = () => {
               </div>
 
               <div className='combat-banner'>
-                <img src='assets/images/post-combat.png' alt='image' />
+                <img src='assets/images/post-combat.png' alt='combat-banner' />
               </div>
               <Pannel>
                 <p className='para-text'>

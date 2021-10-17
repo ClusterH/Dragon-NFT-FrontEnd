@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import ReactGA from 'react-ga';
 import styled from 'styled-components/macro';
 
 const InfoCard = styled.button`
@@ -127,7 +128,7 @@ export function ExternalLink({ target = '_blank', href, rel = 'noopener noreferr
   return <StyledLink target={target} rel={rel} href={href} onClick={handleClick} {...rest} />;
 }
 
-export default Option = ({ link = null, clickable = true, size, onClick = null, color, header, subheader = null, icon, active = false, id }) => {
+const Option = ({ link = null, clickable = true, size, onClick = null, color, header, subheader = null, icon, active = false, id }) => {
   const content = (
     <OptionCardClickable id={id} onClick={onClick} clickable={clickable && !active} active={active}>
       <OptionCardLeft>
@@ -156,3 +157,5 @@ export default Option = ({ link = null, clickable = true, size, onClick = null, 
 
   return content;
 };
+
+export default Option;

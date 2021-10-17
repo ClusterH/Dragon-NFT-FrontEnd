@@ -60,7 +60,7 @@ const RankingItem = ({ idx }) => {
       <label>
         <span className='number'>{idx}</span>
         <span className='check-status'>
-          <img src='https://storage.googleapis.com/opensea-prod.appspot.com/creature/50.png' />
+          <img src='https://storage.googleapis.com/opensea-prod.appspot.com/creature/50.png' alt='check-status' />
         </span>
         <span className='txt'>Name? Address?</span>
       </label>

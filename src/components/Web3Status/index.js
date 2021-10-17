@@ -1,4 +1,4 @@
-import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core';
+import { useWeb3React } from '@web3-react/core';
 import React from 'react';
 import { FiActivity } from 'react-icons/fi';
 import styled from 'styled-components';

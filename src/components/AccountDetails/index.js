@@ -80,22 +80,7 @@ const YourAccount = styled.div`
     font-weight: 500;
   }
 `;
-const LowerSection = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  padding: 1.5rem;
-  flex-grow: 1;
-  overflow: auto;
-  background-color: #2c2f36;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
 
-  h5 {
-    margin: 0;
-    font-weight: 400;
-    color: #8f96ac;
-  }
-`;
 const AccountControl = styled.div`
   display: flex;
   justify-content: space-between;
@@ -159,10 +144,7 @@ const IconWrapper = styled.div`
     width: ${(props) => (props.iconSize ? props.iconSize + 'px' : '32px')};
   }
 `;
-const TransactionListWrapper = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-`;
+
 const WalletAction = styled.button`
   width: fit-content;
   font-weight: 400;
@@ -174,9 +156,6 @@ const WalletAction = styled.button`
     cursor: pointer;
     text-decoration: underline;
   }
-`;
-const MainWalletAction = styled(WalletAction)`
-  color: #ffffff;
 `;
 
 export default function AccountDetails({ toggleWalletModal, ENSName, openOptions }) {

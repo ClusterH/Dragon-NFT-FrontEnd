@@ -35,7 +35,7 @@ export const useGetVaultStakedWant = (pools) => {
       ...p,
       stakedAmount: response[index].toString()
     }));
-  }, [pools]);
+  }, [pools, account, contract, error]);
 
   return stakedAmounts;
 };
@@ -60,6 +60,7 @@ export const useStake = (pid) => {
   const handleStake = useCallback(
     async (amount) => {
       const txHash = await stake(vaultChefContract, pid, amount, account);
+      console.info(txHash);
     },
     [account, vaultChefContract, pid]
   );

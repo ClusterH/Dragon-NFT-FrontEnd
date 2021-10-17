@@ -321,7 +321,7 @@ const VaultItem = ({ pool }) => {
   const poolAddress = getPoolAddress(chainId, pool.pid);
   const poolContract = useMemo(() => {
     return getContract(poolAddress, erc20ABI, library, account);
-  }, [poolAddress, chainId, account]);
+  }, [poolAddress, account, library]);
 
   const { onApprove } = usePoolApprove(poolContract);
   const { onStake } = useStake(pool.pid);
@@ -337,8 +337,10 @@ const VaultItem = ({ pool }) => {
     try {
       await onApprove();
       await onStake(val);
-    } catch (e) {}
-  }, [onApprove]);
+    } catch (e) {
+      console.info(e);
+    }
+  }, [onApprove, onStake, val]);
 
   return (
     <Container>

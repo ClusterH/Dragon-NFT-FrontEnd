@@ -199,7 +199,7 @@ const BankVaults = () => {
           <div className='bank-content'>
             <div className='bank-transactions'>
               <div className='bank-banner'>
-                <img src='assets/images/bank-banner.png' alt='image' />
+                <img src='assets/images/bank-banner.png' alt='bank-banner' />
                 <span className='banner-txt'>Return to the Inn/Plains -&gt;</span>
               </div>
               <div className='vault-item-list'>

@@ -1,11 +1,8 @@
-import { Interface, FunctionFragment } from '@ethersproject/abi';
-import { BigNumber } from '@ethersproject/bignumber';
-import { Contract } from '@ethersproject/contracts';
 import { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useActiveWeb3React } from '../../hooks/useWeb3';
 import { useBlockNumber } from '../application/hook';
-import { addMulticallListeners, removeMulticallListeners, parseCallKey, toCallKey, ListenerOptions } from './actions';
+import { addMulticallListeners, parseCallKey, removeMulticallListeners, toCallKey } from './actions';
 
 function isMethodArg(x) {
   return ['string', 'number'].indexOf(typeof x) !== -1;
@@ -162,8 +159,6 @@ export function useMultipleContractSingleData(addresses, contractInterface, meth
 
   const results = useCallsData(calls, options);
 
-  // const latestBlockNumber = useBlockNumber()
-
   return useMemo(() => {
     return results.map((result) => toCallState(result, contractInterface, fragment));
   }, [fragment, results, contractInterface]);
@@ -185,7 +180,6 @@ export function useSingleCallResult(contract, methodName, inputs, options, gasRe
   }, [contract, fragment, inputs, gasRequired]);
 
   const result = useCallsData(calls, options)[0];
-  const latestBlockNumber = useBlockNumber();
 
   return useMemo(() => {
     return toCallState(result, contract?.interface, fragment);

@@ -12,8 +12,8 @@ const WALLETCONNECT_BRIDGE_URL = 'https://uniswap.bridge.walletconnect.org';
 // }
 
 export const NETWORK_URLS = {
-  [1]: `https://mainnet.infura.io/v3/${INFURA_KEY}`,
-  [4]: `https://rinkeby.infura.io/v3/${INFURA_KEY}`
+  1: `https://mainnet.infura.io/v3/${INFURA_KEY}`,
+  4: `https://rinkeby.infura.io/v3/${INFURA_KEY}`
 };
 
 const SUPPORTED_CHAIN_IDS = Object.keys(CHAINS).map((key) => Number(key));

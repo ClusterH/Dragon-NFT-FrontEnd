@@ -161,7 +161,7 @@ const Inn = () => {
           <div className='combat-content'>
             <div className='combat-transactions'>
               <div className='combat-banner'>
-                <img src='assets/images/post-combat.png' alt='image' />
+                <img src='assets/images/post-combat.png' alt='combat-banner' />
               </div>
               <Pannel>
                 <p className='para-text'>You push through the doors and are overwhelmed by the smell of stale booze and sweaty warriors.</p>
