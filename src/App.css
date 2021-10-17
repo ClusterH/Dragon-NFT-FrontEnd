@@ -1,0 +1,258 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 62.5%;
+  vertical-align: baseline;
+  color: #21263f;
+  font-family: 'Barlow';
+  font-weight: normal;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+html,
+body {
+  line-height: 1;
+  font-family: 'Barlow';
+  font-weight: normal;
+  background: #363636;
+}
+html.over-hidden,
+body.over-hidden {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+/*
+1.) Global Typography
+----------------------------------------*/
+*, :before, :after {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  outline:0;
+}
+/*
+2.0.1) Font Face
+-----------------------------*/
+/*Put Your font face Styles here*/
+
+/*  button start*/
+button {
+  cursor: pointer;
+}
+/*  button ends*/
+/*
+2.0.2) Global Headings
+-----------------------------*/
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #21263f;
+}
+h1 {
+  /* font-size: 48px; */
+  font-size: 4.8rem;
+  line-height: 0.875;
+  margin: 0 0 0.4375rem 0;
+  
+}
+h2 {
+  /* font-size: 32px; */
+  font-size: 4.1rem;
+  line-height: 1.2;
+  margin: 0 0 0.65625rem 0;
+  font-weight: 300;
+}
+h3 {
+  font-size: 2.4rem;
+  line-height: 1.2;
+  margin: 0 0 30px;
+  font-weight: bold;
+  color: #F37E00;
+}
+h4 {
+  /* font-size: 21px; */
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 0 0.7rem 0;
+  font-weight: bold;
+  color:#12234B;
+}
+h5 {
+  /* font-size: 18px; */
+  font-size: 2.4rem;
+  line-height: 1.49;
+  margin: 0 0 25px 0;
+  font-weight: 400;
+  letter-spacing: 0.12rem;
+}
+h6 {
+  /* font-size: 14px; */
+  font-size: 1.4rem;
+  line-height: 1.5;
+  margin: 0 0 1.5rem 0;
+}
+/*
+2.0.5) General Text Formatting
+-----------------------------------*/
+p {
+  font-size: 1.7rem;
+  color: #21263f;
+  line-height: 1.25;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+/*
+2.0.4) List Styles
+---------------------------------*/
+
+/*
+2.0.5) General Text Formatting
+-----------------------------------*/
+/*
+2.0.6) Link style
+-------------------------*/
+em,span {
+  display: inline-block;
+  font-size: inherit;
+}
+strong {
+  display: inline-block;
+  font-size: inherit;
+  font-weight: bold;
+}
+a {
+  color: #000;
+  text-decoration: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+}
+a:hover, a:focus {
+  text-decoration: none;
+}
+a:active {
+  outline: none;
+}
+
+/* Clear Floated Elements
+----------------------------------------------------------------------------------------------------*/
+
+/* http://sonspring.com/journal/clearing-floats */
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+/* http://perishablepress.com/press/2008/02/05/lessons-learned-concerning-the-clearfix-css-hack */
+
+.clearfix:after {
+  clear: both;
+  content: ' ';
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.clearfix {
+  display: inline-block;
+}
+.container {
+  max-width: 1437px;
+  padding: 0 15px;
+  width: 100%;
+  margin: 0 auto;
+}
+* html .clearfix {
+  height: 1%;
+}
+
+.clearfix {
+  display: block;
+}
+a {
+  transition: all 0.3s ease-in-out;
+}
+a, span {
+  display: inline-block;
+}
+.btn {
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.05rem;
+  text-align: center;
+  letter-spacing: 0.25px;
+  color: #FFD58C;
+  background: #100D0D;
+  border-radius: 2px;
+  padding: 10px;
+  border:1px solid #100D0D;
+}
+.btn:hover {
+  background: #fff;
+  color: #100D0D;
+}
+
+@media only screen and (max-width: 767px) {
+  html, body {
+    overflow-x: hidden;
+  }
+  
+}
