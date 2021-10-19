@@ -326,6 +326,7 @@ const VaultItem = ({ pool }) => {
   const handleStake = useCallback(async () => {
     try {
       const res = await onStake(val);
+      console.info(res)
     } catch (e) {
       console.info(e);
     }
