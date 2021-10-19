@@ -1,11 +1,13 @@
-import { useMemo, useState, useCallback } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
 import { CHAINS } from '../../config/constants/chains';
 import { POOLS } from '../../config/pools';
 import { useBankVaultContext } from '../../contexts/BankVaultContext';
-import { useVaultChefContract } from '../../hooks/useContract';
+import { useMasterChefContract, usePoolContract, useVaultChefContract } from '../../hooks/useContract';
 import { useActiveWeb3React } from '../../hooks/useWeb3';
-import { callStakedWantTokens, stake } from '../../utils/callHelpers';
+import { getBalanceNumber } from '../../utils/bigNumberConverter';
+import { approve, callPoolInfo, callStakedWantTokens, callTotalAllocPoint, callDCAUPerSecond, stake } from '../../utils/callHelpers';
+import { getAPY } from '../../utils/poolAnalytics';
 
 export const useGetVaultStakedWant = (pools) => {
   const { account, error } = useActiveWeb3React();
@@ -33,7 +35,7 @@ export const useGetVaultStakedWant = (pools) => {
 
     return pools.map((p, index) => ({
       ...p,
-      stakedAmount: response[index].toString()
+      stakedAmount: (response[index] / 10 ** 18).toFixed(5)
     }));
   }, [pools, account, contract, error]);
 
@@ -56,14 +58,38 @@ export const useGetPoolInfo = () => {
 export const useStake = (pid) => {
   const { account } = useActiveWeb3React();
   const vaultChefContract = useVaultChefContract();
+  const poolContract = usePoolContract(pid);
 
   const handleStake = useCallback(
     async (amount) => {
-      const txHash = await stake(vaultChefContract, pid, amount, account);
-      console.info(txHash);
+      // const allowanceAmount = await getAllowance(poolContract, vaultChefContract, account);
+      const status = await approve(poolContract, vaultChefContract, account);
+
+      if (status) {
+        const res = await stake(vaultChefContract, pid, amount, account);
+        console.info(res);
+        return res;
+      }
     },
-    [account, vaultChefContract, pid]
+    [poolContract, vaultChefContract, account, pid]
   );
 
   return { onStake: handleStake };
+};
+
+export const useGetPoolAnayltics = async (pid) => {
+  const { account } = useActiveWeb3React();
+  const masterChefContract = useMasterChefContract();
+  const vaultChefContract = useVaultChefContract();
+
+  const res = useMemo(async () => {
+    const stakedTokenBalance = await callStakedWantTokens(vaultChefContract, pid, account);
+    const poolInfo = await callPoolInfo(masterChefContract, pid);
+    const totalAllocPoint = await callTotalAllocPoint(masterChefContract);
+    const dcauPerSecond = await callDCAUPerSecond(masterChefContract);
+    const poolWeight = getBalanceNumber(poolInfo.allocPoint) / getBalanceNumber(totalAllocPoint);
+    const poolDCAUPerSecond = dcauPerSecond * poolWeight;
+    getAPY(poolDCAUPerSecond, stakedTokenBalance);
+  }, [account, pid, masterChefContract, vaultChefContract]);
+  return res;
 };

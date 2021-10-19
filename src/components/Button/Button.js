@@ -39,7 +39,7 @@ const Container = styled.div`
 const Button = ({ label }) => {
   return (
     <Container>
-      <a className='primary-btn'>
+      <a href className='primary-btn'>
         <svg width='100%' height='76' viewBox='0 0 279 76' fill='none' xmlns='http://www.w3.org/2000/svg'>
           <path
             fillRule='evenodd'

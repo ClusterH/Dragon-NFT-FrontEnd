@@ -10,7 +10,8 @@ export const usePoolApprove = (poolContract) => {
   const handleApprove = useCallback(async () => {
     try {
       const tx = await approve(poolContract, vaultChefContract, account);
-      return tx;
+      const receipt = tx.wait();
+      return receipt;
     } catch (e) {
       return false;
     }

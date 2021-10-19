@@ -190,7 +190,6 @@ const Container = styled.div`
 
 const BankVaults = () => {
   useGetPoolInfo();
-
   const { poolInfo } = useBankVaultContext();
   return (
     <Container className='content'>
@@ -242,13 +241,13 @@ const BankVaults = () => {
                 </div>
                 <ul className='options-list'>
                   <li>
-                    <a href='#'>[1] Withdraw All</a>
+                    <a href>[1] Withdraw All</a>
                   </li>
                   <li>
-                    <a href='#'>[2] Redeem Rewards</a>
+                    <a href>[2] Redeem Rewards</a>
                   </li>
                   <li>
-                    <a href='#'>[3] SAM: Should there be other options here?</a>
+                    <a href>[3] SAM: Should there be other options here?</a>
                   </li>
                 </ul>
               </div>

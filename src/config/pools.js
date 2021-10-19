@@ -1,10 +1,16 @@
-export const CONTRACT_ADDRESSES = {
-  mainnet: {},
-  rinkeby: {
-    dragonUtility: '0x66A8a6Ab9778D8A2D8bB5D28c7319c246262677A',
-    masterChef: '0xE21a3A7fB4fF125A55ff75e93F70a49C491F0Ca3',
-    vaultChef: '0x2f868bC458f578958525B2780A0a3a713ee1270E'
-  }
+export const VAULT_CHEF_ADDRESSES = {
+  1: '',
+  4: '0x2f868bC458f578958525B2780A0a3a713ee1270E'
+};
+
+export const MASTER_CHEF_ADDRESSES = {
+  1: '',
+  4: '0xE21a3A7fB4fF125A55ff75e93F70a49C491F0Ca3'
+};
+
+export const DRAGON_UTILITY_ADDRESSES = {
+  1: '',
+  4: '0x66A8a6Ab9778D8A2D8bB5D28c7319c246262677A'
 };
 
 export const POOLS = {

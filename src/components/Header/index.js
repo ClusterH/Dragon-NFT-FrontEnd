@@ -232,7 +232,7 @@ const Header = () => {
               <img src='assets/images/logo.png' alt='logo' className='logoImg' />
             </a>
             <nav className='dropdown'>
-              <a className='nav-toggle nav-icon1'>
+              <a href className='nav-toggle nav-icon1'>
                 <span></span>
               </a>
               <ul className='menu'>

@@ -76,7 +76,7 @@ const MarketItem = ({ selected }) => {
         <img alt='avatar' src='https://storage.googleapis.com/opensea-prod.appspot.com/creature/50.png' />
 
         {selected && (
-          <a href='#' className='sell'>
+          <a href className='sell'>
             Sell
           </a>
         )}

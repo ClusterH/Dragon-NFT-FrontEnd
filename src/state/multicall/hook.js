@@ -1,7 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useActiveWeb3React } from '../../hooks/useWeb3';
-import { useBlockNumber } from '../application/hook';
 import { addMulticallListeners, parseCallKey, removeMulticallListeners, toCallKey } from './actions';
 
 function isMethodArg(x) {

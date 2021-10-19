@@ -249,10 +249,10 @@ const Plains = () => {
 
                 <ul className='options-list'>
                   <li>
-                    <a href='#'> [1] Option One</a>
+                    <a href> [1] Option One</a>
                   </li>
                   <li>
-                    <a href='#'> [2] Option Two</a>
+                    <a href> [2] Option Two</a>
                   </li>
                 </ul>
                 <DragonInfo />

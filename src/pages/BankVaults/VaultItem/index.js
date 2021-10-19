@@ -1,11 +1,7 @@
-import React, { useCallback, useState, useMemo } from 'react';
+import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import erc20ABI from '../../../config/abi/erc20.json';
-import { usePoolApprove } from '../../../hooks/useApprove';
-import { useActiveWeb3React } from '../../../hooks/useWeb3';
-import { getPoolAddress } from '../../../utils/addressHelpers';
-import { getContract } from '../../../utils/web3React';
 import { useStake } from '../hook';
+import { useGetPoolAnayltics } from '../hook';
 
 const Container = styled.div`
   .text-panel {
@@ -316,15 +312,9 @@ const Container = styled.div`
 const VaultItem = ({ pool }) => {
   const [expanded, setExpanded] = useState(false);
   const [val, setVal] = useState('');
-
-  const { account, library, chainId } = useActiveWeb3React();
-  const poolAddress = getPoolAddress(chainId, pool.pid);
-  const poolContract = useMemo(() => {
-    return getContract(poolAddress, erc20ABI, library, account);
-  }, [poolAddress, account, library]);
-
-  const { onApprove } = usePoolApprove(poolContract);
   const { onStake } = useStake(pool.pid);
+
+  useGetPoolAnayltics(pool.pid);
 
   const handleChange = useCallback(
     (e) => {
@@ -335,12 +325,11 @@ const VaultItem = ({ pool }) => {
 
   const handleStake = useCallback(async () => {
     try {
-      await onApprove();
-      await onStake(val);
+      const res = await onStake(val);
     } catch (e) {
       console.info(e);
     }
-  }, [onApprove, onStake, val]);
+  }, [onStake, val]);
 
   return (
     <Container>
@@ -357,7 +346,7 @@ const VaultItem = ({ pool }) => {
               </a>
             </div>
           </div>
-          <div className='stake txt'>{`$${pool.stakedAmount.toString()}`}</div>
+          <div className='stake txt'>{`$${pool.stakedAmount}`}</div>
           <div className='apy txt'>1.2K%</div>
           <div className='daily txt'>5%</div>
           <div className='tvl txt'>$1,000,000</div>

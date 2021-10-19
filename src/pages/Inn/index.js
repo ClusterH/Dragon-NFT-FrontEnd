@@ -168,13 +168,13 @@ const Inn = () => {
                 <p className='para-text'>"This looks like my kind of place!"</p>
                 <ul className='options-list'>
                   <li>
-                    <a href='#'> [1] Get a Room (0.005 DGNG)</a>
+                    <a href> [1] Get a Room (0.005 DGNG)</a>
                   </li>
                   <li>
-                    <a href='#'> [2] Request a Song(0.005 DGNG)</a>
+                    <a href> [2] Request a Song(0.005 DGNG)</a>
                   </li>
                   <li>
-                    <a href='#'> [3] Head to the Gambling Den</a>
+                    <a href> [3] Head to the Gambling Den</a>
                   </li>
                 </ul>
                 <DragonInfo />

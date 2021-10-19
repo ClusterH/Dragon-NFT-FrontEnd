@@ -1,7 +1,7 @@
 import { ethers } from 'ethers';
 import { getAddress } from '@ethersproject/address';
 
-import { CONTRACT_ADDRESSES, POOLS } from '../config/pools';
+import { VAULT_CHEF_ADDRESSES, MASTER_CHEF_ADDRESSES, POOLS } from '../config/pools';
 import { CHAINS } from '../config/constants/chains';
 
 export const ADDRESS_ZERO = ethers.constants.AddressZero;
@@ -30,11 +30,11 @@ export const getENSName = (chainId) => {
 };
 
 export const getVaultChefAddress = (chainId) => {
-  return CONTRACT_ADDRESSES[getENSName(chainId)].vaultChef;
+  return VAULT_CHEF_ADDRESSES[chainId];
 };
 
 export const getMasterChefAddress = (chainId) => {
-  return CONTRACT_ADDRESSES[getENSName(chainId)].masterChef;
+  return MASTER_CHEF_ADDRESSES[chainId];
 };
 
 export const getPoolAddress = (chainId, poolId) => {
